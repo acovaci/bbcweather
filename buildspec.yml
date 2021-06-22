@@ -6,6 +6,7 @@ phases:
       - aws cloudformation package --template-file samTemplate.yaml --s3-bucket bbcweather --output-template-file outputSamTemplate.yaml
   build:
     commands:
+      - pip install pytest
       - python -m pytest --junitxml=report/pytest.xml
 artifacts:
   type: zip
