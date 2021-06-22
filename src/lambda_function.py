@@ -1,4 +1,5 @@
-from scraper import LerwickWeatherScraper
+from bbc_weather_scraper import LerwickWeatherScraper
+import temperature_logger
 
 def lambda_handler(event, context):
     return {

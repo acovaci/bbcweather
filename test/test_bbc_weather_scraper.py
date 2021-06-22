@@ -1,7 +1,7 @@
 import requests.models
 import bs4
 
-from src.scraper import BBCWeatherScraper
+from src.bbc_weather_scraper import BBCWeatherScraper
 
 def test_can_request_weather_page():
     LondonWeatherScraper = BBCWeatherScraper(2643743)
