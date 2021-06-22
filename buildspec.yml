@@ -3,7 +3,7 @@ phases:
   install:
     commands:
       - aws cloudformation package --template-file samTemplate.yaml --s3-bucket bbcweather --output-template-file outputSamTemplate.yaml
-      - pip install -r requirements.txt -t .
+      - pip install -r requirements.txt -t src
   build:
     commands:
       - python -m pytest --junitxml=report/pytest.xml
