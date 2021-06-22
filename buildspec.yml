@@ -8,7 +8,6 @@ phases:
     commands:
       - pip install pytest
       - pip install -r requirements.txt
-      - ls -la src
   build:
     commands:
       - python -m pytest --junitxml=report/pytest.xml
