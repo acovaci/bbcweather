@@ -4,9 +4,13 @@ phases:
     commands:
       - pip install -r requirements.txt -t src/
       - aws cloudformation package --template-file samTemplate.yaml --s3-bucket bbcweather --output-template-file outputSamTemplate.yaml
-  build:
+  pre_build:
     commands:
       - pip install pytest
+      - pip install -r requirements.txt
+      - ls -la src
+  build:
+    commands:
       - python -m pytest --junitxml=report/pytest.xml
 artifacts:
   type: zip
