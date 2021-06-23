@@ -1,12 +1,20 @@
 import requests
 from bs4 import BeautifulSoup
 
+from temperature_logger import TemperatureLogger
+
 
 
 class BBCWeatherScraper:
     def __init__(self, location_id: int):
         self._url = f"https://www.bbc.co.uk/weather/{location_id}"
+        self._logger = TemperatureLogger("test-temperature", location_id)
     
+
+    def log_current_temperature(self):
+        temperature = self.get_todays_temperature()
+        self._logger.log_temperature(temperature)
+
 
     def get_todays_temperature(self) -> int:
         return BBCWeatherScraper._extract_todays_temperature_from_weather_page_soup(self._get_weather_page_soup())
@@ -42,3 +50,4 @@ LerwickWeatherScraper = BBCWeatherScraper(2644605)
 
 if __name__ == '__main__':
     print(LerwickWeatherScraper.get_todays_temperature())
+    LerwickWeatherScraper.log_current_temperature()
