@@ -17,7 +17,7 @@ class TemperatureLogger:
         try:
             result = self._client.write_records(
                 DatabaseName="bbcweather-db",
-                TableName="test-temperature",
+                TableName=self.table_name,
                 Records=[record]
             )
         except Exception as e:
