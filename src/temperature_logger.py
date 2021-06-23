@@ -13,7 +13,7 @@ record = {
     "Dimensions": dimensions,
     "MeasureName": "temperature",
     "MeasureValue": str(-1),
-    "MeasureValueType": "INT",
+    "MeasureValueType": "BIGINT",
     "Time": str(int(round(time.time() * 1000)))
 }
 
@@ -24,6 +24,4 @@ try:
         Records=[record]
     )
 except Exception as e:
-    print(e)
-
-RAN = 120
+    print(e) 
