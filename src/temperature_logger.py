@@ -2,11 +2,11 @@ import boto3
 import time
 
 session = boto3.Session()
-client = session.client("timestream-write")
+client = session.client("timestream-write", region_name="eu-west-1")
 
 dimensions = [{
     "Name": "location_id",
-    "Value": -1
+    "Value": str(-1)
 }]
 
 record = {
@@ -25,3 +25,5 @@ try:
     )
 except Exception as e:
     print(e)
+
+RAN = 120
