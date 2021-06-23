@@ -8,7 +8,7 @@ from temperature_logger import TemperatureLogger
 class BBCWeatherScraper:
     def __init__(self, location_id: int):
         self._url = f"https://www.bbc.co.uk/weather/{location_id}"
-        self._logger = TemperatureLogger("test-temperature", location_id)
+        self._logger = TemperatureLogger("lerwick-temperature", location_id)
     
 
     def log_current_temperature(self):
